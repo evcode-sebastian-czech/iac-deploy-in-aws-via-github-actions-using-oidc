@@ -14,7 +14,7 @@ resource "aws_iam_role" "github_aws_oidc_role" {
 			"Condition": {
 				"StringEquals": {
 					"token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
-          "token.actions.githubusercontent.com:sub": "repo:evcode-sebastian-czech/iac-deploy-in-aws-via-github-actions-using-oidc:ref:refs/heads/main"
+          "token.actions.githubusercontent.com:sub": "repo:evcode-sebastian-czech/iac-deploy-in-aws-via-github-actions-using-oidc:*"
 				}
 			}
 		}
