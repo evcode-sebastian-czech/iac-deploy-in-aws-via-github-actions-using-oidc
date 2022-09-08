@@ -16,7 +16,7 @@ Simple repository created to deploy infrastructure using Terraform into AWS clou
                 "Condition": {
                     "StringLike": {
                         "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
-            "token.actions.githubusercontent.com:sub": "repo:evcode-sebastian-czech/iac-deploy-in-aws-via-github-actions-using-oidc:*"
+                        "token.actions.githubusercontent.com:sub": "repo:evcode-sebastian-czech/iac-deploy-in-aws-via-github-actions-using-oidc:*"
                     }
                 }
             }
