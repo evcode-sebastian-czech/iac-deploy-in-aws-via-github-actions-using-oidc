@@ -78,8 +78,8 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        role-to-assume: arn:aws:iam::884522662008:role/GitHubActionsOIDC
-        role-session-name: GitHubActionsOIDC
+        role-to-assume: arn:aws:iam::884522662008:role/GitHubActionsAwsOIDCRole
+        role-session-name: github-aws-session
         aws-region: us-east-1 # ${{ env.AWS_REGION }}
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
