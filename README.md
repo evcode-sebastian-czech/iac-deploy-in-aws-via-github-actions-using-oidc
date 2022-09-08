@@ -11,10 +11,10 @@ Simple repository created to deploy infrastructure using Terraform into AWS clou
     ```
     * requesting the access token:
     ```
-    - name: Configure AWS credentials
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-        role-to-assume: arn:aws:iam::1234567890:role/GitHubActionsAwsOIDCRole
-        role-session-name: GitHubActionsOIDC
-        aws-region: us-east-1
+            role-to-assume: arn:aws:iam::1234567890:role/GitHubActionsAwsOIDCRole
+            role-session-name: github-aws-session
+            aws-region: us-east-1
     ```
