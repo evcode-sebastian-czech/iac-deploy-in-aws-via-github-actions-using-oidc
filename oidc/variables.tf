@@ -4,5 +4,5 @@ variable "region" {
 }
 
 variable "github_provider_arn" {
-  type    = string
+  type = string
 }
