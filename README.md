@@ -2,7 +2,7 @@
 
 Simple repository created to deploy infrastructure using Terraform into AWS cloud by GitHub Action using OpenID Connect. Whole integration between AWS and GitHub was configured using [Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services) by:
 1. adding identity provider in AWS
-1. configuring the role and trust policy
+1. configuring the role and trust policy (code for [IAM role and policy configuration is available in oidc subfolder](oidc))
 1. updating your GitHub Actions workflow by:
     * adding permissions settings:
     ```

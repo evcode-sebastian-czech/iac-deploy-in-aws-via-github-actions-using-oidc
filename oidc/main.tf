@@ -1,11 +1,3 @@
-data "aws_iam_openid_connect_provider" "github_provider" {
-  arn = "arn:aws:iam::884522662008:oidc-provider/token.actions.githubusercontent.com"
-}
-
-data "aws_iam_role" "github_role" {
-  name = "GitHubActionsOIDC"
-}
-
 resource "aws_iam_role" "github_aws_oidc_role" {
   name = "GitHubActionsAwsOIDCRole"
 
@@ -16,7 +8,7 @@ resource "aws_iam_role" "github_aws_oidc_role" {
 		{
 			"Effect": "Allow",
 			"Principal": {
-				"Federated": "arn:aws:iam::884522662008:oidc-provider/token.actions.githubusercontent.com"
+				"Federated": "${var.github_provider_arn}"
 			},
 			"Action": "sts:AssumeRoleWithWebIdentity",
 			"Condition": {
