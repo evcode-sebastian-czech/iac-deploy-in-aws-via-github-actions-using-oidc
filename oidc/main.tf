@@ -1,3 +1,13 @@
+data "tls_certificate" "github" {
+  url = var.github_url
+}
+
+resource "aws_iam_openid_connect_provider" "github_provider" {
+  url             = var.github_url
+  client_id_list  = [var.github_aud]
+  thumbprint_list = concat([for item in data.tls_certificate.github.certificates : item.sha1_fingerprint], [var.github_thumbprint])
+}
+
 resource "aws_iam_role" "github_aws_oidc_role" {
   name = "GitHubActionsAwsOIDCRole"
 
@@ -8,7 +18,7 @@ resource "aws_iam_role" "github_aws_oidc_role" {
 		{
 			"Effect": "Allow",
 			"Principal": {
-				"Federated": "${var.github_provider_arn}"
+				"Federated": "${aws_iam_openid_connect_provider.github_provider.arn}"
 			},
 			"Action": "sts:AssumeRoleWithWebIdentity",
 			"Condition": {
